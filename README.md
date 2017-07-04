@@ -41,7 +41,7 @@ This tap provides a `brew tm` command, which has the following features, all via
 - Support for editing and auditing package files (Casks) for TextMate bundles
 
 
-# Installing this tap
+# Installation
 
 1. Make sure you have [Homebrew](https://brew.sh) installed.
 
@@ -60,7 +60,7 @@ Run `brew tm` for information on how to use this tap.
 Search for TextMate bundles that support 6502 assembly:
 
     $ brew tm search 6502
-    ==> Exact Match
+    ==> Partial Match
     tm-6502-assembler
 
 
@@ -71,7 +71,7 @@ Install the `tm-6502-assembler` bundle directly into TextMate:
 
 # Troubleshooting
 
-If you experience any problem related to `brew tm`, **do not submit an issue to Homebrew project.**
+If you experience any issue using `brew tm`, **do not submit** an issue to the Homebrew project.
 
 Instead, try the following steps in any order:
 
@@ -87,7 +87,7 @@ Instead, try the following steps in any order:
 
 - Follow Homebrew’s [troubleshooting steps](https://github.com/Homebrew/brew/blob/master/docs/Troubleshooting.md).
 
-- If none of these steps help, file a new issue with the `homebrew-textmate` tap. **Do not submit an issue to the Homebrew project if it’s related to the tap.**
+- **If none of these steps help**, file a new issue **with the `homebrew-textmate` project**. **Do not submit** an issue to the Homebrew project if the issue seems to be related to TextMate bundles, or to the `brew tm` command.
 
 
 # Contributing
@@ -184,21 +184,23 @@ You don’t need to be familiar with the `brew cask` command, although it will n
 
 In Homebrew, you can add custom features only if you bring along your own unofficial subcommand.
 
-## Why not just fork Homebrew, then add TextMate support as a core feature?
+## Why not just fork Homebrew, then add support for TextMate bundles as a core feature?
 
 I don’t believe the Homebrew project will ever be an appropriate home for TextMate bundles. Homebrew has a strong focus on features which are useful for _many_ users (and rightly so).
 
-From my point of view, TextMate is not notable enough by orders of magnitude.
+In my personal opinion and judgement, the TextMate ecosystem is not notable enough.
 
 The good thing is that Homebrew allows – and, in fact, encourages – users to extend Homebrew by tapping into repos to their hearts’ content.
 
-## How did you implement this?
+## How was this implemented?
 
 Homebrew offers a `brew cask` command which allows you to manage packages related to GUI apps on macOS.
 
-Homebrew offers external commands to extend the features of Homebrew.
+Homebrew also offers external commands to extend the features of Homebrew.
 
 This tap takes the `brew cask` feature and applies it to TextMate bundles.
+
+For installing and removing TextMate bundles, `brew tm` uses a few (unsupported) implementation details of TextMate.
 
 ## Why doesn’t TextMate show a confirmation dialog during installation?
 
@@ -214,7 +216,7 @@ There are a few possible points of contact where the `brew tm` command will caus
 
 One of them is that Homebrew keeps a bit of metadata inside the `/usr/local/Caskroom/` hierarchy. This metadata will include instances of the `tmbundle` artifact stanza, which is proprietary for TextMate-related Casks.
 
-The `tmbundle` stanza is unknown to Homebrew, and could in theory lead to unexpected errors. If you experience such errors, refer to the Troubleshooting section.
+The `tmbundle` stanza is unknown both to Homebrew and to the `brew cask` command. Homebrew does not expect metadata to contain `tmbundle` entries, which possibly leads to warnings or error messages. If you experience issues, refer to the Troubleshooting section.
 
 ## Will this break TextMate or my bundles in any way?
 
@@ -279,4 +281,4 @@ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH RE
 
 # Acknowledgements
 
-The idea for this repo comes from a [discussion thread by TextMate mailing list member じょいすじょん](http://lists.macromates.com/listinfo/textmate) on 2017-07-04.
+The idea for this repo comes from a [discussion thread started by じょいすじょん](http://lists.macromates.com/textmate/2017-July/040365.html) on the [TextMate mailing list](http://lists.macromates.com/listinfo/textmate).
