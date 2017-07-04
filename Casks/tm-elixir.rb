@@ -7,5 +7,5 @@ cask "tm-elixir" do
   name "A TextMate Bundle for the Elixir programming language."
   homepage "https://github.com/elixir-lang/elixir-tmbundle"
 
-  tmbundle "Elixir.tmbundle"
+  tmbundle "elixir-tmbundle-master", target: "Elixir.tmbundle"
 end
