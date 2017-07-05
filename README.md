@@ -87,6 +87,8 @@ Instead, try the following steps in any order:
 
 - Follow Homebrew’s [troubleshooting steps](https://github.com/Homebrew/brew/blob/master/docs/Troubleshooting.md).
 
+- If you are trying to contribute to the repo, the easiest way is to just work in the tap directly. Go to `/usr/local/Homebrew/Library/Taps/claui/homebrew-textmate` and work from there.
+
 - **If none of these steps help**, file a new issue **with the `homebrew-textmate` project**. **Do not submit** an issue to the Homebrew project if the issue seems to be related to TextMate bundles, or to the `brew tm` command.
 
 
@@ -126,8 +128,6 @@ When following the [Caskroom’s instructions](https://github.com/caskroom/homeb
 - To audit a Cask for a TextMate bundle prior to submitting a PR, use `brew tm audit` instead of `brew cask audit`.
 
 - Use the `claui/homebrew-textmate` repository instead of `caskroom/homebrew-cask`.
-
-- For your personal fork, use `<your-github-username>/homebrew-textmate` instead of …`-cask`.
 
 - When writing a Cask for a Textmate bundle, use the `tmbundle` stanza instead of `app`.
 
@@ -265,6 +265,13 @@ Run `brew untap claui/textmate`.
 ## Can I remove the entire tap but still keep the brew tm command around?
 
 Not yet. This would involve splitting the repository in two or more taps. I don’t think this would be worth the additional effort on the user’s side, at least for now.
+
+## I want to contribute but I don’t want to work in /usr/local/Homebrew/Library/Taps/claui/homebrew-textmate directly. Is there another way?
+
+Maintaining a local clone, e. g. under your home directory, is probably not worth the hassle that comes with it. As all the `brew` subcommands only look at the taps under `/usr/local/…`, and ignore everything else, you’d have to take care of syncing your custom repo with the tap _all the time_. It’s definitely possible; however for testing, my personal opinion is that it this brings pain, sorrow, and confusion.
+
+Instead, make sure you have done `brew tap claui/textmate` once; then I recommend that you go to `/usr/local/Homebrew/Library/Taps/claui/homebrew-textmate` and simply work from there.
+
 
 
 # Legal notice
