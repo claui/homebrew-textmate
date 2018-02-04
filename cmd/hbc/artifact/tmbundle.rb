@@ -1,4 +1,4 @@
-require "hbc/artifact"
+require "hbc/artifact/moved"
 
 module Hbc
   module Artifact
