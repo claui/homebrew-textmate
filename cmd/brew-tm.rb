@@ -46,8 +46,8 @@ $LOAD_PATH.unshift("#{HOMEBREW_LIBRARY_PATH}/cask/lib")
 require "hbc"
 
 require_relative "hbc/artifact"
+require_relative "hbc/config"
 require_relative "hbc/dsl"
-require_relative "hbc/locations"
 
 BREW_TM_HOME = "https://github.com/claui/homebrew-textmate"
 
